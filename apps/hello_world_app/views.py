@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, HttpResponse
 import praw
-
+from .models import *
 
 
 def bot_login():
@@ -17,8 +17,8 @@ def bot_login():
 def index(request):
 	image_url = []
 	filetypes = []
-	
-	
+	# links = Like.objects.all()
+	# print links
 	reddit = praw.Reddit(client_id='DBJ-wTtdIbMWfA',
                      client_secret="Yn8cgRnAbg1btB_n1VYNwx6z09k", password='codingdojo007',
                      user_agent='Student testing /u/cdojobot', username='cdojobot')
@@ -30,7 +30,7 @@ def index(request):
     			image_url.append({'url':submission.url, 'title':submission.title})
     		if submission.url[-4:] not in filetypes:
     			filetypes.append(submission.url[-4:])
-    		print submission.id_from_url, " ", submission.id
+    		print submission.id
 
     		# if submission.url[-4:] == "gifv":
     		# 	image_url.append(submission.url[:-1])
