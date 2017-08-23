@@ -1,36 +1,71 @@
 body{
   background: #1B252F;
+  font-family: Raleway, sans-serif;
 }
 #wrapper{
   width: 80%;
   margin:0px auto;
   margin-top: 100px;
-  
+  overflow: visible;
 }
 #photos {
   /* Prevent vertical gaps */
   line-height: 0;
-   
+   /*background: white;*/
   -webkit-column-count: 3;
-  -webkit-column-gap:   1px;
+  -webkit-column-gap:   0px;
   -moz-column-count:    3;
-  -moz-column-gap:      1px;
+  -moz-column-gap:      0px;
   column-count:         3;
-  column-gap:           1px; 
-
+  column-gap:           0px; 
+  overflow: visible;
+  z-index:  -1;
 }
+
 
 #photos img {
   /* Just in case there are inline attributes */
   width: 100% !important;
   height: auto !important;
+  z-index: 100;
+  /*position: absolute;*/
+}
+.img__description {
+  position: absolute;
+  top: 50;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  /*background: rgba(29, 106, 154, 0.72);  */
+   background: linear-gradient(transparent, rgba(0, 0, 1, 0.72));
+  color: #bfbfbf;
+  border-radius: 6px 6px 0 0;
+  color: #fff;
+  visibility: visible;
+  opacity: 0;
+  /*height: 10%;*/
+  /* transition effect. not necessary */
+  transition: opacity .2s, visibility .2s;
+  text-align: center;
+  /*margin:0;*/
+  margin-bottom: 0px;
+}
+p{
+  word-wrap: break-word;
+  height: auto;
+  line-height: normal;
+  font-size: 20px;
+  font-family: Raleway, sans-serif;
+}
+.single-img:hover .img__description {
+  visibility: visible;
+  opacity: 1;
+
+}
+.single-img {
+  position: relative;
 }
 
-/*#photos img:hover {
-  width: 130% !important;
-  height: auto !important;
-}
-*/
 @media (max-width: 1400px) {
   #photos {
   -moz-column-count:    2;
@@ -47,6 +82,7 @@ body{
 }
 
 
-.sm-lightbox-title {
-  font-size: 50px;
+.single-img {
+  background: white;
+  /*padding: 2px 2px 2px 2px;*/
 }

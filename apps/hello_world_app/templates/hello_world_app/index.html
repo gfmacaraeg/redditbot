@@ -3,6 +3,7 @@
 <head>
 	<title></title>
 	{% load staticfiles %}
+	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 	<link rel="stylesheet" href="{% static 'styles.css' %}" media="screen" title="no title"  charset="utf-8">
 	<link rel="stylesheet" href="{% static 'lightbox.css' %}" media="screen" title="no title"  charset="utf-8">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -10,7 +11,7 @@
 	<script>
 	    lightbox.option({
 	      'resizeDuration': 200,
-	      // 'wrapAround': true,
+	      'fitImagesInViewport': true,
 	      'showImageNumberLabel': false
 	    })
 </script>
@@ -20,10 +21,13 @@
 	<div id="wrapper">
 		<div id="photos">
 		 {% for i in images%} 
+			<div class="single-img">
 
-			 <a href="{{i.url}}" data-lightbox="gallery" data-title="{{i.title}}">
-			 	<img src="{{i.url}}">
-			 </a>
+				 <a href="{{i.url}}" data-lightbox="gallery" data-title="{{i.title}}" >
+				 	<img src="{{i.url}}">
+				 </a>
+				 <p class="img__description" style="color: #e0e0e0;">{{i.title}}</p>
+			</div>	 
 		 {% endfor %}
 		</div>
 	</div>
