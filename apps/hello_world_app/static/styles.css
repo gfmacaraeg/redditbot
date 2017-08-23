@@ -26,6 +26,11 @@ body{
   height: auto !important;
 }
 
+/*#photos img:hover {
+  width: 130% !important;
+  height: auto !important;
+}
+*/
 @media (max-width: 1400px) {
   #photos {
   -moz-column-count:    2;
@@ -39,4 +44,9 @@ body{
   -webkit-column-count: 1;
   column-count:         1;
   }
+}
+
+
+.sm-lightbox-title {
+  font-size: 50px;
 }

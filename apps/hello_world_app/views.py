@@ -3,6 +3,7 @@ import praw
 
 def index(request):
 	image_url = []
+	image_data = {}
 	print praw
 	reddit = praw.Reddit(client_id='DBJ-wTtdIbMWfA',
                      client_secret="Yn8cgRnAbg1btB_n1VYNwx6z09k", password='codingdojo007',
@@ -12,7 +13,8 @@ def index(request):
     		# print(dir(submission))
     		print submission.preview, submission.url
     		if "jpg" in submission.url:
-    			image_url.append(submission.url)
+    			image_url.append({'url':submission.url, 'title':submission.title})
+
 
     		# if submission.url[-4:] == "gifv":
     		# 	image_url.append(submission.url[:-1])
